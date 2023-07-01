@@ -12,7 +12,7 @@ export default class Main extends Component {
         activeBoxes: [1, 2, 3, 4],
     }
 
-    handelToggleBtn(id){
+    handelToggleBtn= (id) => {
         const activeBoxes = [...this.state.activeBoxes];
 
         if(activeBoxes.includes(id)){
@@ -28,6 +28,8 @@ export default class Main extends Component {
             }
         })
     }
+
+
   render() {
 
 
@@ -41,7 +43,7 @@ export default class Main extends Component {
     return (
         //it is sortcut <> </> for react.fragment
         <React.Fragment> 
-            <Sidebar boxes={this.state.boxes} activeBoxes={this.state.activeBoxes}/>
+            <Sidebar handeleToggle={this.handelToggleBtn} boxes={this.state.boxes} activeBoxes={this.state.activeBoxes}/>
             <div className="box-wrapper">
                 {boxes}
             </div>

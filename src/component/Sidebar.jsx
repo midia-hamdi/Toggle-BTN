@@ -7,7 +7,7 @@ export default function Sidebar(props) {
                 <span>{box.title}</span>
                 <label className="toggle-control">
                     <input type="checkbox" checked={props.activeBoxes.includes(box.id)} />
-                    <span className="control" onClick={(e) => this.handelToggleBtn(box.id)}></span>
+                    <span className="control" onClick={(e) => props.handeleToggle(box.id)}></span>
                 </label>
             </div>
         )
