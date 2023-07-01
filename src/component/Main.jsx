@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Sidebar from "./Sidebar";
 
 export default class Main extends Component {
     state = {
@@ -29,17 +30,7 @@ export default class Main extends Component {
     }
   render() {
 
-    const toggle = this.state.boxes.map(box => {
-        return (
-            <div className="toggle">
-                <span>{box.title}</span>
-                <label className="toggle-control">
-                    <input type="checkbox" checked={this.state.activeBoxes.includes(box.id)} />
-                    <span className="control" onClick={(e) => this.handelToggleBtn(box.id)}></span>
-                </label>
-            </div>
-        )
-    })
+
 
     const boxes = this.state.boxes.map(box => {
         if (this.state.activeBoxes.includes(box.id)) {
@@ -50,9 +41,7 @@ export default class Main extends Component {
     return (
         //it is sortcut <> </> for react.fragment
         <React.Fragment> 
-            <aside>
-               {toggle}
-            </aside>
+            <Sidebar boxes={this.state.boxes} activeBoxes={this.state.activeBoxes}/>
             <div className="box-wrapper">
                 {boxes}
             </div>
