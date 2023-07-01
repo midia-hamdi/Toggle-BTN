@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from "./Sidebar";
+import Boxes from "./Boxes";
+
 
 export default class Main extends Component {
     state = {
@@ -32,8 +34,6 @@ export default class Main extends Component {
 
   render() {
 
-
-
     const boxes = this.state.boxes.map(box => {
         if (this.state.activeBoxes.includes(box.id)) {
             return <div className="box">{box.title}</div>
@@ -44,9 +44,7 @@ export default class Main extends Component {
         //it is sortcut <> </> for react.fragment
         <React.Fragment> 
             <Sidebar handeleToggle={this.handelToggleBtn} boxes={this.state.boxes} activeBoxes={this.state.activeBoxes}/>
-            <div className="box-wrapper">
-                {boxes}
-            </div>
+
         </React.Fragment>
     )
   }

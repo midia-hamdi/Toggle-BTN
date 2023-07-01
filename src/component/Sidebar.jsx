@@ -1,16 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Toggle from "./toggle"
 
 export default function Sidebar(props) {
     const toggle = props.boxes.map(box => {
-        return (
-            <div className="toggle">
-                <span>{box.title}</span>
-                <label className="toggle-control">
-                    <input type="checkbox" checked={props.activeBoxes.includes(box.id)} />
-                    <span className="control" onClick={(e) => props.handeleToggle(box.id)}></span>
-                </label>
-            </div>
-        )
+        return <Toggle box={box} activeBoxes={props.activeBoxes} handeleToggle={props.handeleToggle} />
     })
 
   return (
